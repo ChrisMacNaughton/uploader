@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+<form class="form-horizontal" enctype="multipart/form-data" method="POST">
+  <input type="hidden" name="action" value="upload" />
+  <div class="container-fluid">
+    <div class="row-fluid">
+      <div class="control-group span6 offset3{% if errors.password %} error{%endif%}">
+        <label class="control-label" for="password">Password</label>
+        <div class="controls">
+          <input type="password" id="password" name="password" placeholder="Password">{% if errors.password %}<span class="help-block">Password is required</span>{% else %}<span class="help-block">The password that will be used to encrypt your file.</span>{%endif%}
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container-fluid">
+    <div class="row-fluid">
+      <div class="control-group span6 offset3">
+        <label class="control-label" for="path">Requested Path</label>
+        <div class="controls">
+          <input type="text" id="path" name="path" placeholder="Path">
+          <span class="help-block">http://{{app.path}}/[path]</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container-fluid">
+    <div class="row-fluid">
+      <div class="control-group span6 offset3{% if errors.file %} error{%endif%}">
+        <label class="control-label" for="file">File</label>
+        <div class="controls">
+          <input type="file" id="file" name="file">
+          {% if errors.file %}<span class="help-block">File is required</span>{% else %}<span class="help-inline">Limit: 5GB</span>{% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="form-actions">
+    <button type="submit" class="btn btn-primary">Share</button>
+  </div>
+</form>
+{% endblock %}
