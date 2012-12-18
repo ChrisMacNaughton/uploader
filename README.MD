@@ -9,3 +9,8 @@ This system allows the user to upload a file and enter a password and then gener
 Going through the filesystem for encryption allows this system to run fairly well even on an AWS micro instance (like [Uploader][]).  Theoretically, this system can handle file uploads of up to 5GB; however, I haven't tested the encryption abilities of the AWS instance it's currently running on to identify the true maximum.
 
 [Uploader]: http://uploader.chrismacnaughton.com
+
+##Requirements
+
++ Composer is required for installation of dependencies.
++ OpenSSL is required on the server for encryption/decryption
